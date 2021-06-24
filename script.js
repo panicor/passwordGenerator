@@ -9,18 +9,6 @@ var lowerCasedCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k
 // Array of uppercase characters to be included in password
 var upperCasedCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",];
 
-let  = window.prompt("Let's play RPS! Choose R, P, or S."); 
-
-
-
-
-
-
-
-
-
-
-
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -35,3 +23,59 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+function generatePassword(){
+
+var finalPass = [];
+
+var promptPass = prompt("Enter length of password (between 8 and 128).");
+promptPass = parseInt(promptPass);
+
+if(isNaN(promptPass) || promptPass < 8 || promptPass > 128){
+  confirm("Please enter a valid number of password characters.");
+  return;
+}
+else{
+  var ifSpecial = confirm("Press OK to confirm special characters.");
+
+  var ifNum = confirm("Press OK to confirm numbers.");
+
+  var ifLow = confirm("Press OK to confirm lowercase letters.");
+
+  var ifCap = confirm("Press OK to confirm uppercase letters.");
+ 
+ ifelse();
+
+ var array = [];
+ for(i = 0; i < promptPass; i++){
+  var math =  Math.floor(Math.random() * finalPass.length-1);
+  var variable = finalPass[math];
+  array.unshift(variable);
+}
+
+  var newArray = array.join("");
+  return newArray;
+}
+
+function ifelse(){
+if(ifSpecial){
+  finalPass =  finalPass.concat(specialCharacters);
+ }
+ if(ifNum){
+   finalPass = finalPass.concat(numericCharacters);
+ }
+ if(ifLow){
+   finalPass = finalPass.concat(lowerCasedCharacters);
+ }
+ if(ifCap){
+   finalPass = finalPass.concat(upperCasedCharacters);
+ }
+ else{
+   alert("Please choose at least one character type for your password.")
+ }
+
+}
+}
+
+

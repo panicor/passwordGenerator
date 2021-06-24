@@ -18,7 +18,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
@@ -56,6 +55,7 @@ else{
 
   var newArray = array.join("");
   return newArray;
+  
 }
 
 function ifelse(){
@@ -71,8 +71,11 @@ if(ifSpecial){
  if(ifCap){
    finalPass = finalPass.concat(upperCasedCharacters);
  }
- else{
+ if (!ifNum && !ifCap && !ifLow && !ifSpecial) {
    alert("Please choose at least one character type for your password.")
+ }
+ else{
+   return;
  }
 
 }
